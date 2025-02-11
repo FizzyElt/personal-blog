@@ -103,7 +103,23 @@ const newData = {
 const result = replaceEqualDeep(oldData, newData);
 ```
 
-[![](https://mermaid.ink/img/pako:eNqFkMtqAzEMRX_FqJsWEsjai0LLrLNpd-MsVFvjMfEj-EEpIf9euZOGlAYiYyFfjqVrH0EnQyBh8ulTz5ireH9VUXBoj6UMNAmWoyUjSs1pT_JhM20WYsmlfdiMh1lkKs3XRexhXCZdXYqXlj2YGg1W3Ekpfzuv188iYqCxp90N9odASyPvq4sLSZGLvv64UZCysy4-Jm8G7vGk4J41Jq_G8Wl7w9M_6OVs62IGVhAoB3SG__XYZQV1pkAKJJcG8757OTGHraa3r6hB1txoBTk1O4Oc0Bc-tQMPosEhvyic1dM3mr2JdA?type=png)](https://mermaid.live/edit#pako:eNqFkMtqAzEMRX_FqJsWEsjai0LLrLNpd-MsVFvjMfEj-EEpIf9euZOGlAYiYyFfjqVrH0EnQyBh8ulTz5ireH9VUXBoj6UMNAmWoyUjSs1pT_JhM20WYsmlfdiMh1lkKs3XRexhXCZdXYqXlj2YGg1W3Ekpfzuv188iYqCxp90N9odASyPvq4sLSZGLvv64UZCysy4-Jm8G7vGk4J41Jq_G8Wl7w9M_6OVs62IGVhAoB3SG__XYZQV1pkAKJJcG8757OTGHraa3r6hB1txoBTk1O4Oc0Bc-tQMPosEhvyic1dM3mr2JdA)
+```mermaid
+flowchart TB
+	classDef changed stroke:#0f0
+	
+	subgraph result
+		direction TB
+		res[data]:::changed --> name[name]
+		res[data] --> age[age]:::changed
+	end
+
+
+	subgraph "origin(oldData)"
+		direction TB
+		old[data] --> oldName[name]
+		old[data] --> oldAge[age]
+	end
+```
 
 綠框就是 oldData 與 newData 作結構共享後被異動的結構或值。
 
@@ -130,7 +146,30 @@ const newData = {
 const result = replaceEqualDeep(oldData, newData);
 ```
 
-[![](https://mermaid.ink/img/pako:eNqFkstqwzAQRX_FqJsWEshai0KLl6WFpjs7i7E1lpXYUhhJlBLy7x1XcZNgN5VBj6szY3PwQdROoZCi6dxn3QKF7OW9tBmPugPvc2wyjq1GlflAbofybtWsEpFmHytNsG8zQh-7kMJhKENYB-Ns9vF8TpkqFATYSCnHzsvl45C_Qo-F5Wkzg4_Qk8YC9G2EqACiizfcgNexequ2hf9ZrrumqxHMuSqVJggttx2eKwmlcGS0sfeuU0PFQyn-M3Lecc3Fx_FpzsgEmhqZIicjN5C_PPxejeCMB7EQPVIPRvGfdBjiUoQWeyyF5K0C2g0ajsxBDG79ZWshA0VcCHJRt0I20Hk-xT03xtwAy-xP6fEbf4nTDg?type=png)](https://mermaid.live/edit#pako:eNqFkstqwzAQRX_FqJsWEshai0KLl6WFpjs7i7E1lpXYUhhJlBLy7x1XcZNgN5VBj6szY3PwQdROoZCi6dxn3QKF7OW9tBmPugPvc2wyjq1GlflAbofybtWsEpFmHytNsG8zQh-7kMJhKENYB-Ns9vF8TpkqFATYSCnHzsvl45C_Qo-F5Wkzg4_Qk8YC9G2EqACiizfcgNexequ2hf9ZrrumqxHMuSqVJggttx2eKwmlcGS0sfeuU0PFQyn-M3Lecc3Fx_FpzsgEmhqZIicjN5C_PPxejeCMB7EQPVIPRvGfdBjiUoQWeyyF5K0C2g0ajsxBDG79ZWshA0VcCHJRt0I20Hk-xT03xtwAy-xP6fEbf4nTDg)
+```mermaid
+flowchart LR
+	classDef changed stroke:#0f0
+	
+	subgraph result
+		direction TB
+		res[data]:::changed --> resName[name]
+		res[data] --> resAge[age]
+		res[data] --> resArr[arr]:::changed
+		res[data] --> resSubObj[subObj]
+		resSubObj --> resData[data]
+	end
+
+
+	subgraph "origin(oldData)"
+		direction TB
+		
+		old[data] --> oldName[name]
+		old[data] --> oldAge[age]
+		old[data] --> oldArr[arr]
+		old[data] --> oldSubObj[subObj]
+		oldSubObj --> oldData[data]
+	end
+```
 
 這樣我們可以看出在部份資料修改時整個父層結構都會被更新，詳細可以看 [replaceEqualDeep](https://github.com/TanStack/query/blob/main/packages/query-core/src/utils.ts#L244) 實作，或是參考[測試案例](https://github.com/TanStack/query/blob/09382a4b430f3decb933b56a124ccd4772f042d4/packages/query-core/src/__tests__/utils.test.tsx#L140)
 
@@ -199,13 +238,26 @@ function App() {
 
 第一次的結構共享會是 react-core 裡的 `Query` fetch API 拿到值的當下會做一次去更新狀態，第二次會從我準備要更新狀態根據你有沒有放 select 再做一次，否則就是直接替換。
 
-[![](https://mermaid.ink/img/pako:eNp1UL1uAjEMfpXIAxO8wA0M6HgC6EQY3MSQU3NJSBydKsTWpe_A0pdrX6M-jkpFVb3E_n5sx2cw0RI0cPBxMA4zq-1KByVR6vMxY3KqELfIOKFjxEC7TMmjofWpom-J0v6BVovFUtmuJGTjnpJFpomnYKfkkRT95_VdJnkyPHp5iP-N-OP8evv45by7Jq20UbMf6LZUoGH8zE5eJX5UhaXLHubQU-6xs3KL82jWwI560tBIajG_aNDhIjqsHDevwUDDudIccqxHB80BfZGq3rZqO5Tb9Xf08g3y5Xkr?type=png)](https://mermaid.live/edit#pako:eNp1UL1uAjEMfpXIAxO8wA0M6HgC6EQY3MSQU3NJSBydKsTWpe_A0pdrX6M-jkpFVb3E_n5sx2cw0RI0cPBxMA4zq-1KByVR6vMxY3KqELfIOKFjxEC7TMmjofWpom-J0v6BVovFUtmuJGTjnpJFpomnYKfkkRT95_VdJnkyPHp5iP-N-OP8evv45by7Jq20UbMf6LZUoGH8zE5eJX5UhaXLHubQU-6xs3KL82jWwI560tBIajG_aNDhIjqsHDevwUDDudIccqxHB80BfZGq3rZqO5Tb9Xf08g3y5Xkr)
+```mermaid
+flowchart TB
+	subgraph setData
+		one[replaceEqualDeep]
+		one --> dispatchUpdate
+	end
+	dispatchUpdate --有 select--> two[replaceEqualDeep]
+	dispatchUpdate --無 select--> replace
+	two & replace --> newData[new data state]
+```
 
 那不帶 select 會使切換時 data 偵測到更新的原因是什麼？
 
 首先要先知道，react-query 由 Observer 管理是否更新狀態，更新有可能會抓取 query client 不同的 Query 實體，所以並不是一個 Observer 永遠只配對同一個 Query 實體。
 
-[![](https://mermaid.ink/img/pako:eNo1jb0OwjAMhF8l8kxeIAMDsCMoG2EwifsjmhRcB1RVfXcSFbz4zv5ON4MbPIGBuh8-rkUWddnZqPKcEvG07zuKorRuSJQgl_UqD6236ngfid_EK_93GU5Pj0IFGSWL65nQiaqKvtkIGwjEATufe-cStiAtBbJgsvTIDws2LpnDJEM1RQdGONEGeEhNC6bGfsxurTl02DCG33X5AiHqR20?type=png)](https://mermaid.live/edit#pako:eNo1jb0OwjAMhF8l8kxeIAMDsCMoG2EwifsjmhRcB1RVfXcSFbz4zv5ON4MbPIGBuh8-rkUWddnZqPKcEvG07zuKorRuSJQgl_UqD6236ngfid_EK_93GU5Pj0IFGSWL65nQiaqKvtkIGwjEATufe-cStiAtBbJgsvTIDws2LpnDJEM1RQdGONEGeEhNC6bGfsxurTl02DCG33X5AiHqR20)
+```mermaid
+flowchart TB
+	QueryClient --get target query--> Observer
+	Observer --update--> state[React State]
+```
 
 因此 query key 的切換會導致 Observer 取到的 Query 實體不同，即便 Query class `setData` 本身會作結構共享，但實際 Observable 在更新 data 是兩個不同 Query 實體資料的切換，所以 data 會偵測到更新，如果是直接執行 `refetch` 就不會偵測到變更。
 
