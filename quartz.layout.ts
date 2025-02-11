@@ -8,8 +8,8 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/fizzyelt",
+      Twitter: "https://twitter.com/fizzyelt",
     },
   }),
 }
@@ -27,7 +27,23 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.Explorer(),
+    Component.Explorer({
+      folderClickBehavior: "link",
+      sortFn: (a, b) => {
+        if (!a.file && !b.file) {
+          return 0
+        }
+
+        if (a.file?.frontmatter?.published && b.file?.frontmatter?.published) {
+          const dateA = new Date(a.file.frontmatter.published)
+          const dateB = new Date(b.file.frontmatter.published)
+
+          return dateB.getTime() - dateA.getTime()
+        }
+
+        return a.file && !b.file ? 1 : -1
+      },
+    }),
   ],
   right: [
     Component.Graph(),
