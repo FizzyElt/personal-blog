@@ -1,6 +1,5 @@
 ---
 title: "FizzyElt"
-cover: "/static/icon.png"
 ---
 
 這裡是我紀錄想法的地方，包含程式、生活、心靈成長
