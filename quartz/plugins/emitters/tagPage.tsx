@@ -19,6 +19,7 @@ import { i18n } from "../../i18n"
 import DepGraph from "../../depgraph"
 
 interface TagPageOptions extends FullPageLayout {
+  formatTagTitle?: (tagName: string) => string
   sort?: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }
 
@@ -88,7 +89,9 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
           const title =
             tag === "index"
               ? i18n(cfg.locale).pages.tagContent.tagIndex
-              : `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
+              : userOpts?.formatTagTitle
+                ? userOpts.formatTagTitle(tag)
+                : `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
           return [
             tag,
             defaultProcessedContent({
@@ -106,7 +109,9 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
           if (tags.has(tag)) {
             tagDescriptions[tag] = [tree, file]
             if (file.data.frontmatter?.title === tag) {
-              file.data.frontmatter.title = `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
+              file.data.frontmatter.title = userOpts?.formatTagTitle
+                ? userOpts.formatTagTitle(tag)
+                : `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
             }
           }
         }

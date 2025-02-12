@@ -11,6 +11,7 @@ export const sharedPageComponents: SharedLayout = {
     links: {
       GitHub: "https://github.com/fizzyelt",
       Twitter: "https://twitter.com/fizzyelt",
+      Mastodon: "https://g0v.social/@fizzyelt",
     },
   }),
 }
@@ -28,18 +29,25 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.RecentNotes({
-      limit: 3,
-      showTags: false,
-      linkToMore: "/notes" as SimpleSlug,
-      filter: (f) => !!f.relativePath?.startsWith("notes/"),
-    }),
-    Component.RecentNotes({
-      limit: 3,
-      showTags: false,
-      linkToMore: "/posts" as SimpleSlug,
-      filter: (f) => !!f.relativePath?.startsWith("posts/"),
-    }),
+    Component.DesktopOnly(
+      Component.RecentNotes({
+        title: "Recent Notes",
+        limit: 3,
+        showTags: false,
+        linkToMore: "/notes" as SimpleSlug,
+        filter: (f) => !!f.relativePath?.startsWith("notes/"),
+      }),
+    ),
+    Component.DesktopOnly(
+      Component.RecentNotes({
+        title: "Recent Posts",
+        limit: 3,
+        showTags: false,
+        linkToMore: "/posts" as SimpleSlug,
+        filter: (f) => !!f.relativePath?.startsWith("posts/"),
+      }),
+    ),
+
     // Component.Explorer({
     //   folderClickBehavior: "link",
     //   sortFn: (a, b) => {
@@ -59,9 +67,17 @@ export const defaultContentPageLayout: PageLayout = {
     // }),
   ],
   right: [
-    Component.Graph(),
+    Component.DesktopOnly(Component.Graph()),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+    Component.DesktopOnly(Component.Backlinks()),
+    Component.MobileOnly(
+      Component.RecentNotes({
+        title: "Recent Notes/Posts",
+        limit: 3,
+        showTags: false,
+        filter: (f) => f.slug !== "index",
+      }),
+    ),
   ],
 }
 

@@ -22,6 +22,7 @@ import { i18n } from "../../i18n"
 import DepGraph from "../../depgraph"
 
 interface FolderPageOptions extends FullPageLayout {
+  formatFolderTitle?: (folderName: string) => string
   sort?: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }
 
@@ -90,7 +91,9 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
           defaultProcessedContent({
             slug: joinSegments(folder, "index") as FullSlug,
             frontmatter: {
-              title: `${i18n(cfg.locale).pages.folderContent.folder}: ${folder}`,
+              title: userOpts?.formatFolderTitle
+                ? userOpts.formatFolderTitle(folder)
+                : `${i18n(cfg.locale).pages.folderContent.folder}: ${folder}`,
               tags: [],
             },
           }),

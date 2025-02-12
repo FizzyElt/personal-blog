@@ -8,8 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "FizzyElt",
-    pageTitleSuffix: "",
+    pageTitle: "FizzyElt 🐦",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -79,8 +78,8 @@ const config: QuartzConfig = {
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
-      Plugin.FolderPage(),
-      Plugin.TagPage(),
+      Plugin.FolderPage({ formatFolderTitle: (folder) => `🗂️ ${folder}` }),
+      Plugin.TagPage({ formatTagTitle: (tag) => `🏷️ ${tag}` }),
       Plugin.ContentIndex({
         enableSiteMap: true,
         enableRSS: true,
