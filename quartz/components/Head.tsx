@@ -153,7 +153,7 @@ export default (() => {
     // Url of current page
     const socialUrl =
       fileData.slug === "404" ? url.toString() : joinSegments(url.toString(), fileData.slug!)
-    console.log(ogImagePath)
+
     return (
       <head>
         <title>{title}</title>
