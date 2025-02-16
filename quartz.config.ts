@@ -13,6 +13,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: {
       provider: "plausible",
+      host: "fizzyelt.com",
     },
     locale: "zh-TW",
     baseUrl: "fizzyelt.com",
