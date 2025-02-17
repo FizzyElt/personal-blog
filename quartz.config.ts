@@ -12,8 +12,8 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
-      host: "fizzyelt.com",
+      provider: "google",
+      tagId: "G-NCNFF0MYLR",
     },
     locale: "zh-TW",
     baseUrl: "fizzyelt.com",
