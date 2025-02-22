@@ -8,6 +8,7 @@ title: "FizzyElt"
 
 - [posts](/posts)
 - [notes](/notes)
+- [tech](/tech)
 
 ---
 

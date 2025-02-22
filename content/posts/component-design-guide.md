@@ -1,8 +1,9 @@
 ---
-title: "元件設計指引"
+title: 元件設計指引
 published: 2024-02-20
-description: "我對元件設計的一些看法"
-tags: ["Front End"]
+description: 我對元件設計的一些看法
+tags:
+  - Front-End
 ---
 
 本篇不討論該用什麼 UI 框架，而是將我在開發元件中發現的現象以及考量的重點紀錄下來，或許能給剛開始練習設計通用元件的你一個參考。
