@@ -75,7 +75,9 @@ export const defaultContentPageLayout: PageLayout = {
         title: "Recent Notes/Posts",
         limit: 3,
         showTags: false,
-        filter: (f) => f.slug !== "index",
+        filter: (f) => {
+          return ["notes", "posts"].some((slug) => f.slug?.startsWith(slug))
+        },
       }),
     ),
   ],
