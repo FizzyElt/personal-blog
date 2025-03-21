@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "FizzyElt 🐦",
+    pageTitle: "FizzyElt 🕊️",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -19,7 +19,6 @@ const config: QuartzConfig = {
     baseUrl: "fizzyelt.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "published",
-    generateSocialImages: false,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,

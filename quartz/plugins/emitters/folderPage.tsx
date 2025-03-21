@@ -64,6 +64,7 @@ function computeFolderInfo(
   folders: Set<SimpleSlug>,
   content: ProcessedContent[],
   locale: keyof typeof TRANSLATIONS,
+  formatFolderTitle?: (folderName: string) => string,
 ): Record<SimpleSlug, ProcessedContent> {
   // Create default folder descriptions
   const folderInfo: Record<SimpleSlug, ProcessedContent> = Object.fromEntries(
@@ -72,7 +73,9 @@ function computeFolderInfo(
       defaultProcessedContent({
         slug: joinSegments(folder, "index") as FullSlug,
         frontmatter: {
-          title: `${i18n(locale).pages.folderContent.folder}: ${folder}`,
+          title: formatFolderTitle
+            ? formatFolderTitle(folder)
+            : `${i18n(locale).pages.folderContent.folder}: ${folder}`,
           tags: [],
         },
       }),
@@ -143,20 +146,17 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
         }),
       )
 
-      const folderDescriptions: Record<string, ProcessedContent> = Object.fromEntries(
-        [...folders].map((folder) => [
-          folder,
-          defaultProcessedContent({
-            slug: joinSegments(folder, "index") as FullSlug,
-            frontmatter: {
-              title: userOpts?.formatFolderTitle
-                ? userOpts.formatFolderTitle(folder)
-                : `${i18n(cfg.locale).pages.folderContent.folder}: ${folder}`,
-              tags: [],
-            },
-          }),
-        ]),
+      const folderInfo = computeFolderInfo(
+        folders,
+        content,
+        cfg.locale,
+        userOpts?.formatFolderTitle,
       )
+      yield* processFolderInfo(ctx, folderInfo, allFiles, opts, resources)
+    },
+    async *partialEmit(ctx, content, resources, changeEvents) {
+      const allFiles = content.map((c) => c[1].data)
+      const cfg = ctx.cfg.configuration
 
       // Find all folders that need to be updated based on changed files
       const affectedFolders: Set<SimpleSlug> = new Set()

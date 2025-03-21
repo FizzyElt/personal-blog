@@ -22,6 +22,7 @@ function computeTagInfo(
   allFiles: QuartzPluginData[],
   content: ProcessedContent[],
   locale: keyof typeof TRANSLATIONS,
+  formatTagTitle?: (tagName: string) => string,
 ): [Set<string>, Record<string, ProcessedContent>] {
   const tags: Set<string> = new Set(
     allFiles.flatMap((data) => data.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes),
@@ -35,7 +36,9 @@ function computeTagInfo(
       const title =
         tag === "index"
           ? i18n(locale).pages.tagContent.tagIndex
-          : `${i18n(locale).pages.tagContent.tag}: ${tag}`
+          : formatTagTitle
+            ? formatTagTitle(tag)
+            : `${i18n(locale).pages.tagContent.tag}: ${tag}`
       return [
         tag,
         defaultProcessedContent({
@@ -125,7 +128,12 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
     async *emit(ctx, content, resources) {
       const allFiles = content.map((c) => c[1].data)
       const cfg = ctx.cfg.configuration
-      const [tags, tagDescriptions] = computeTagInfo(allFiles, content, cfg.locale)
+      const [tags, tagDescriptions] = computeTagInfo(
+        allFiles,
+        content,
+        cfg.locale,
+        userOpts?.formatTagTitle,
+      )
 
       for (const tag of tags) {
         yield processTagPage(ctx, tag, tagDescriptions[tag], allFiles, opts, resources)
@@ -135,42 +143,16 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
       const allFiles = content.map((c) => c[1].data)
       const cfg = ctx.cfg.configuration
 
-      const tags: Set<string> = new Set(
-        allFiles.flatMap((data) => data.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes),
-      )
-
-      // add base tag
-      tags.add("index")
-
-      const tagDescriptions: Record<string, ProcessedContent> = Object.fromEntries(
-        [...tags].map((tag) => {
-          const title =
-            tag === "index"
-              ? i18n(cfg.locale).pages.tagContent.tagIndex
-              : userOpts?.formatTagTitle
-                ? userOpts.formatTagTitle(tag)
-                : `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
-          return [
-            tag,
-            defaultProcessedContent({
-              slug: joinSegments("tags", tag) as FullSlug,
-              frontmatter: { title, tags: [] },
-            }),
-          ]
-        }),
-      )
+      // Find all tags that need to be updated based on changed files
+      const affectedTags: Set<string> = new Set()
+      for (const changeEvent of changeEvents) {
+        if (!changeEvent.file) continue
+        const slug = changeEvent.file.data.slug!
 
         // If it's a tag page itself that changed
         if (slug.startsWith("tags/")) {
           const tag = slug.slice("tags/".length)
-          if (tags.has(tag)) {
-            tagDescriptions[tag] = [tree, file]
-            if (file.data.frontmatter?.title === tag) {
-              file.data.frontmatter.title = userOpts?.formatTagTitle
-                ? userOpts.formatTagTitle(tag)
-                : `${i18n(cfg.locale).pages.tagContent.tag}: ${tag}`
-            }
-          }
+          affectedTags.add(tag)
         }
 
         // If a file with tags changed, we need to update those tag pages
@@ -184,7 +166,12 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
       // If there are affected tags, rebuild their pages
       if (affectedTags.size > 0) {
         // We still need to compute all tags because tag pages show all tags
-        const [_tags, tagDescriptions] = computeTagInfo(allFiles, content, cfg.locale)
+        const [_tags, tagDescriptions] = computeTagInfo(
+          allFiles,
+          content,
+          cfg.locale,
+          userOpts?.formatTagTitle,
+        )
 
         for (const tag of affectedTags) {
           if (tagDescriptions[tag]) {
