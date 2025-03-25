@@ -25,7 +25,7 @@ const config: QuartzConfig = {
       typography: {
         header: "Noto Sans TC",
         body: "Noto Sans TC",
-        code: "Noto Sans TC",
+        code: "IBM Flex Mono",
       },
       colors: {
         lightMode: {
