@@ -78,11 +78,12 @@ UI 顏色
     "dark": "One Dark Pro"
   },
   "experimental.theme_overrides": {
-    "text": "#eeeeee",
-    "icon": "#eeeeee",
     "syntax": {
       "boolean": {
         "color": "#d19a66"
+      },
+      "keyword": {
+        "font_style": "italic"
       }
     }
   },
