@@ -4,9 +4,10 @@ description: "紀錄使用的工具及設定"
 tags: ["Dev"]
 ---
 
+- font: [Monospace Neon](https://monaspace.githubnext.com/)
+
 ## VSCode
 
-- font: [Monospace Neon](https://monaspace.githubnext.com/)
 
 UI 顏色
 
@@ -24,8 +25,108 @@ UI 顏色
     "statusBar.border": "#00000000",
     "tab.activeBackground": "#284049",
     "tab.activeBorderTop": "#a6ff00"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "One Dark italic",
+        "scope": [
+          "comment",
+          "entity.other.attribute-name",
+          "keyword",
+          "markup.underline.link",
+          "storage.modifier",
+          "storage.type",
+          "string.url",
+          "variable.language.super",
+          "variable.language.this"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  },
+}
+```
+
+## Zed
+
+```json title="settings.json"
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": "Material Icon Theme",
+  "telemetry": {
+    "metrics": false
+  },
+
+  "buffer_font_family": "Monaspace Neon",
+  "buffer_font_weight": 300,
+  "ui_font_size": 24,
+  "buffer_font_size": 22,
+
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark Pro"
+  },
+  "experimental.theme_overrides": {
+    "text": "#eeeeee",
+    "icon": "#eeeeee",
+    "syntax": {
+      "boolean": {
+        "color": "#d19a66"
+      }
+    }
+  },
+  "terminal": {
+    "font_family": "Monaspace Neon",
+    "font_size": 18,
+    "dock": "right"
+  },
+  "tabs": {
+    "file_icons": true
+  },
+  "languages": {
+    "OCaml": {
+      "format_on_save": "language_server"
+    }
   }
 }
+```
+
+
+```json title="keymap.json"
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "shift-alt-down": "editor::DuplicateLineDown",
+      "shift-alt-up": "editor::DuplicateLineUp"
+    }
+  }
+]
 ```
 
 ## wezterm

@@ -28,9 +28,11 @@ tags:
 
 ```plaintext title=".ocamlformat"
 profile=janestreet
-sequence-blank-line=preserve-one
-module-item-spacing=preserve
+break-separators=after
 exp-grouping=preserve
+margin=80
+module-item-spacing=preserve
+sequence-blank-line=preserve-one
 ```
 
 [測試網址](https://ocamlformat-online-editor.pages.dev/)
