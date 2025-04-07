@@ -99,6 +99,11 @@ UI 顏色
     "OCaml": {
       "format_on_save": "language_server"
     }
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
   }
 }
 ```
