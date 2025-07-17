@@ -33,6 +33,7 @@ exp-grouping=preserve
 margin=80
 module-item-spacing=preserve
 sequence-blank-line=preserve-one
+if-then-else=k-r
 ```
 
 [測試網址](https://ocamlformat-online-editor.pages.dev/)
