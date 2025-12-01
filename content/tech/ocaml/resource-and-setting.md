@@ -29,11 +29,16 @@ tags:
 ```plaintext title=".ocamlformat"
 profile=janestreet
 break-separators=after
+let-binding-indent=4
+line-endings=lf
 exp-grouping=preserve
 margin=80
 module-item-spacing=preserve
 sequence-blank-line=preserve-one
 if-then-else=k-r
+indicate-multiline-delimiters=space
+parens-tuple=always
+parens-tuple-patterns=always
 ```
 
 [測試網址](https://ocamlformat-online-editor.pages.dev/)
