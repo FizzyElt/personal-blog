@@ -2,7 +2,7 @@
 title: "Monoid Algebraic structure"
 published: 2023-01-29
 description: "介紹 Monoid 數學定義與程式的關係"
-tags: ["Typescript", "Functional Programming", "fp-ts", "algebra"]
+tags: ["Typescript", "Functional-Programming", "fp-ts", "algebra"]
 ---
 
 **Monoid**，是在一個 **Semigroup** 中存在一個 [identity element](https://en.wikipedia.org/wiki/Identity_element)。

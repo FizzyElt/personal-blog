@@ -1,9 +1,12 @@
 ---
-title: "容器的妙用"
+title: 容器的妙用
 published: 2023-05-29
-description: "透過容器來解釋 Functor、Monad，以及它能發揮什麼作用"
-tags: ["Typescript", "Functional Programming", "fp-ts"]
-heroImage: "https://images.unsplash.com/photo-1607437817193-3b3b029b5b75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80"
+description: 透過容器來解釋 Functor、Monad，以及它能發揮什麼作用
+tags:
+  - Typescript
+  - Functional-Programming
+  - fp-ts
+heroImage: https://images.unsplash.com/photo-1607437817193-3b3b029b5b75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80
 ---
 ![hero image](https://images.unsplash.com/photo-1607437817193-3b3b029b5b75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80)
 

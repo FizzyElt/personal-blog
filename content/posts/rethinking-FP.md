@@ -2,7 +2,7 @@
 title: "重新思考 FP"
 published: 2022-06-07
 description: "關於學習FP的一些過程及想法"
-tags: ["Functional Programming"]
+tags: ["Functional-Programming"]
 ---
 
 這篇文章是我學習 Functional Programming 的一個紀錄，同時講述哪些對於我來說是最有幫助的，以及該怎麼看待 Functor 跟 Monad，或許可以帶給讀者們一些啟發。

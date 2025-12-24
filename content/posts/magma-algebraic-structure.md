@@ -2,7 +2,7 @@
 title: "Magma Algebraic structure"
 published: 2023-01-15
 description: "介紹 Magma 數學定義與程式的關係"
-tags: ["Typescript", "Functional Programming", "fp-ts", "algebra"]
+tags: ["Typescript", "Functional-Programming", "fp-ts", "algebra"]
 ---
 
 **Magma** 為代數結構的一種，擁有最單純定義，卻是其他代數結構的基礎。

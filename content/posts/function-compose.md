@@ -2,7 +2,7 @@
 title: "關於 FP 的函數組合"
 published: 2024-12-24
 description: "利於函數組合的手法"
-tags: ["Functional Programming"]
+tags: ["Functional-Programming"]
 ---
 
 ## 函數組合

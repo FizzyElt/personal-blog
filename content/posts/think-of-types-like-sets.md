@@ -1,8 +1,11 @@
 ---
-title: "用集合思考型別"
+title: 用集合思考型別
 published: 2023-04-16
-description: "透過集合的概念來思考程式的型別"
-tags: ["Functional Programming", "algebra", "set"]
+description: 透過集合的概念來思考程式的型別
+tags:
+  - Functional-Programming
+  - algebra
+  - set
 ---
 
 作為一個 FP 愛好者，當你學習到某種程度時你多多少少會碰點數學，即便沒有直接接觸數學本身也會了解一下 FP 語言，**Haskell** 肯定聽過吧？
