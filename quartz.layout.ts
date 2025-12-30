@@ -1,6 +1,5 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
-import { SimpleSlug } from "./quartz/util/path"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -38,20 +37,12 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Search(),
     Component.DesktopOnly(
       Component.RecentNotes({
-        title: "Recent Notes",
-        limit: 3,
+        title: "Recent Notes/Posts",
+        limit: 5,
         showTags: false,
-        linkToMore: "/notes" as SimpleSlug,
-        filter: (f) => !!f.relativePath?.startsWith("notes/"),
-      }),
-    ),
-    Component.DesktopOnly(
-      Component.RecentNotes({
-        title: "Recent Posts",
-        limit: 2,
-        showTags: false,
-        linkToMore: "/posts" as SimpleSlug,
-        filter: (f) => !!f.relativePath?.startsWith("posts/"),
+        linkToMore: false,
+        filter: (f) =>
+          !!f.relativePath?.startsWith("notes/") || !!f.relativePath?.startsWith("posts/"),
       }),
     ),
 
