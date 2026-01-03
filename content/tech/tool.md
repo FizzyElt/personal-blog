@@ -4,7 +4,28 @@ description: "紀錄使用的工具及設定"
 tags: ["Dev"]
 ---
 
+- OS: Pop!_OS 24.04
 - font: [Monospace Neon](https://monaspace.githubnext.com/)
+- [Wezterm](#wezterm)
+- zsh
+- [zinit](https://github.com/zdharma-continuum/zinit)
+  - [zdharma-continuum/fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
+  - [zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [starship](#starship)
+- eza
+- bat
+- [VSCode](#vscode)
+
+## Language
+
+- JS/TS
+  - [n (Node version management)](https://github.com/tj/n)
+  - [nodejs](https://nodejs.org/)
+  - [bun](https://bun.com/)
+- [OCaml](https://ocaml.org)
+- [Rust](https://rust-lang.org/)
+- [Lean](https://lean-lang.org/)
+
 
 ## VSCode
 

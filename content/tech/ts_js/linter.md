@@ -2,7 +2,6 @@
 
 ```json title="biome.json"
 {
-    "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
     "vcs": {
         "enabled": false,
         "clientKind": "git",
