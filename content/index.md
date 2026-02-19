@@ -2,7 +2,12 @@
 title: "FizzyElt"
 ---
 
+
 這裡是我紀錄想法的地方，包含程式、生活、心靈成長
+
+![banner](https://assets.fizzyelt.com/index/view.webp)
+
+--- 
 
 ## 目錄
 
