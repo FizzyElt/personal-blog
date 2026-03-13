@@ -4,7 +4,7 @@ description: "紀錄使用的工具及設定"
 tags: ["Dev"]
 ---
 
-- OS: Pop!_OS 24.04
+- OS: Pop!\_OS 24.04
 - font: [Monospace Neon](https://monaspace.githubnext.com/)
 - [Wezterm](#wezterm)
 - zsh
@@ -26,9 +26,7 @@ tags: ["Dev"]
 - [Rust](https://rust-lang.org/)
 - [Lean](https://lean-lang.org/)
 
-
 ## VSCode
-
 
 UI 顏色
 
@@ -67,7 +65,7 @@ UI 顏色
         }
       }
     ]
-  },
+  }
 }
 ```
 
@@ -83,6 +81,25 @@ UI 顏色
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "minimap": {
+    "thumb": "always",
+    "thumb_border": "none",
+    "max_width_columns": 80,
+    "show": "auto",
+    "display_in": "all_editors"
+  },
+  "colorize_brackets": true,
+  "git_panel": {
+    "tree_view": true
+  },
+  "ui_font_family": "IBM Plex Sans",
+  "ui_font_weight": 450.0,
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
+  "disable_ai": false,
   "icon_theme": "Material Icon Theme",
   "telemetry": {
     "metrics": false
@@ -90,8 +107,8 @@ UI 顏色
 
   "buffer_font_family": "Monaspace Neon",
   "buffer_font_weight": 300,
-  "ui_font_size": 24,
-  "buffer_font_size": 22,
+  "ui_font_size": 22.0,
+  "buffer_font_size": 20.0,
 
   "theme": {
     "mode": "system",
@@ -116,19 +133,239 @@ UI 顏色
   "tabs": {
     "file_icons": true
   },
+  "lsp": {
+    "oxlint": {
+      "initialization_options": {
+        "settings": {
+          "configPath": null,
+          "run": "onType",
+          "disableNestedConfig": false,
+          "fixKind": "safe_fix",
+          "unusedDisableDirectives": "deny"
+        }
+      }
+    },
+    "oxfmt": {
+      "initialization_options": {
+        "settings": {
+          "fmt.configPath": null,
+          "run": "onSave"
+        }
+      }
+    }
+  },
   "languages": {
     "OCaml": {
-      "format_on_save": "language_server"
+      "formatter": "language_server",
+      "format_on_save": "on"
+    },
+    "CSS": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "GraphQL": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "Handlebars": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "HTML": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JavaScript": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        },
+        {
+          "code_action": "source.fixAll.oxc"
+        }
+      ]
+    },
+    "JSON": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JSON5": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "JSONC": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "Less": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "Markdown": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "MDX": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "SCSS": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "TypeScript": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "TSX": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
+    },
+    "YAML": {
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "language_server": {
+            "name": "oxfmt"
+          }
+        }
+      ]
     }
   },
   "git": {
     "inline_blame": {
+      "min_column": 0,
       "enabled": false
     }
   }
 }
 ```
-
 
 ```json title="keymap.json"
 // Zed keymap
@@ -140,17 +377,12 @@ UI 顏色
 // from the command palette.
 [
   {
-    "context": "Workspace",
-    "bindings": {
-      // "shift shift": "file_finder::Toggle"
-    }
-  },
-  {
     "context": "Editor",
     "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
-      "shift-alt-down": "editor::DuplicateLineDown",
-      "shift-alt-up": "editor::DuplicateLineUp"
+      "alt-shift-up": "editor::DuplicateLineUp",
+      "alt-shift-down": "editor::DuplicateLineDown",
+      "alt-shift-ctrl-up": "editor::AddSelectionAbove",
+      "alt-shift-ctrl-down": "editor::AddSelectionBelow"
     }
   }
 ]
