@@ -1,5 +1,6 @@
 ---
 title: 元件設計指引
+permalink: /posts/component-design-guide
 published: 2024-02-20
 description: 我對元件設計的一些看法
 tags:

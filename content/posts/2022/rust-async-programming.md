@@ -1,5 +1,6 @@
 ---
 title: "Rust 非同步機制"
+permalink: /posts/rust-async-programming
 published: 2022-08-20
 description: "對於 Rust 非同步程式的初步解析"
 tags: ["Rust", "asynchronous"]

@@ -1,5 +1,6 @@
 ---
 title: "2023 名言佳句"
+permalink: /posts/2023-famous-quotes
 published: 2023-12-25
 description: "2023 對我的思維產生影響的話"
 tags: []

@@ -1,5 +1,6 @@
 ---
 title: 2025 反思
+permalink: /posts/2025-summary
 description: 2025 歷程
 published: 2025-12-31
 tags:

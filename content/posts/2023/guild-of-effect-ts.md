@@ -1,5 +1,6 @@
 ---
 title: "Effect-ts 概覽"
+permalink: /posts/guild-of-effect-ts
 published: 2023-10-10
 description: "Effect-ts 生態與使用心得"
 tags: ["Typescript", "Functional-Programming"]

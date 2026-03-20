@@ -1,5 +1,6 @@
 ---
 title: 用集合思考型別
+permalink: /posts/think-of-types-like-sets
 published: 2023-04-16
 description: 透過集合的概念來思考程式的型別
 tags:

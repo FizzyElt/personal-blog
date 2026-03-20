@@ -1,5 +1,6 @@
 ---
 title: "萎靡"
+permalink: /posts/languishing
 published: 2025-08-06
 description: "這幾個月的狀態及嘗試"
 tags: ["心靈"]

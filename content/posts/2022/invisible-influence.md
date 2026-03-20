@@ -1,5 +1,6 @@
 ---
 title: "無形的影響力"
+permalink: /posts/invisible-influence
 published: 2022-08-12
 description: "那些我沒察覺到，但卻影響著別人的事物"
 tags: ["心靈", "職涯"]

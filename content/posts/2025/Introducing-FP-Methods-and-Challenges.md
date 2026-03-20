@@ -1,5 +1,6 @@
 ---
 title: 引入 FP 的方法及困難
+permalink: /posts/introducing-fp-methods-and-challenges
 published: 2025-02-13
 description: "引入 FP 的方法及困難"
 tags: ["Functional-Programming", "Dev"]

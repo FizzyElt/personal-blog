@@ -1,5 +1,6 @@
 ---
 title: "2022 我學會的事"
+permalink: /posts/2022-I-learned-things
 published: 2022-12-28
 description: "2022 我對人類的看法" 
 tags: ["成長"]

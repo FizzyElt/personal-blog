@@ -1,5 +1,6 @@
 ---
 title: "Semigroup Algebraic structure"
+permalink: /posts/semigroup-algebraic-structure
 published: 2023-01-15
 description: "介紹 Semigroup 數學定義與程式的關係"
 tags: ["Typescript", "Functional Programming", "fp-ts", "algebra"]

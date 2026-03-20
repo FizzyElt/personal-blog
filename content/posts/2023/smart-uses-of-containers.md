@@ -1,5 +1,6 @@
 ---
 title: 容器的妙用
+permalink: /posts/smart-uses-of-containers
 published: 2023-05-29
 description: 透過容器來解釋 Functor、Monad，以及它能發揮什麼作用
 tags:

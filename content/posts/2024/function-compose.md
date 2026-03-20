@@ -1,5 +1,6 @@
 ---
 title: "關於 FP 的函數組合"
+permalink: /posts/function-compose
 published: 2024-12-24
 description: "利於函數組合的手法"
 tags: ["Functional-Programming"]

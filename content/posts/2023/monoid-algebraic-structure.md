@@ -1,5 +1,6 @@
 ---
 title: "Monoid Algebraic structure"
+permalink: /posts/monoid-algebraic-structure
 published: 2023-01-29
 description: "介紹 Monoid 數學定義與程式的關係"
 tags: ["Typescript", "Functional-Programming", "fp-ts", "algebra"]

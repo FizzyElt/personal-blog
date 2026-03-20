@@ -1,5 +1,6 @@
 ---
 title: "2021 個人成長"
+permalink: /posts/2021-breakthrough
 published: 2022-03-02
 description: "記錄2021年的成長突破" 
 tags: ["成長"]

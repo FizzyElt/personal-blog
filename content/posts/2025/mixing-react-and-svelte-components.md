@@ -1,5 +1,6 @@
 ---
 title: React 與 Svelte 的融合
+permalink: /posts/mixing-react-and-svelte-components
 description: 在 React 內嵌入 Svelte 元件，並解決狀態同步的方法。
 published: 2025-08-31
 tags:

@@ -1,5 +1,6 @@
 ---
 title: "Functor 與 JS/TS"
+permalink: /posts/functor-and-JSTS
 published: 2022-09-01
 description: "用數學角度出發去看 Functor 的定義什麼，我們怎麼用 Typescript 實現它，以及 Option、List 幫我們做了什麼。"
 tags: ["Typescript", "Functional-Programming"]

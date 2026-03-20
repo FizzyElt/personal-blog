@@ -1,5 +1,6 @@
 ---
 title: "2023 總結"
+permalink: /posts/2023-summary
 published: 2023-12-29
 description: "2023 我思考了些什麼"
 tags: ["心靈"]

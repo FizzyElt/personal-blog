@@ -1,5 +1,6 @@
 ---
 title: "信念與使命"
+permalink: /posts/belief-and-mission
 published: 2024-08-06
 description: "近一年我在煩惱什麼"
 tags: ["心靈"]

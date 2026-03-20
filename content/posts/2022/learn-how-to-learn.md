@@ -1,5 +1,6 @@
 ---
 title: "學習如何學習"
+permalink: /posts/learn-how-to-learn
 published: 2022-09-11
 description: "建立自己的學習模式，讓一切事物變得不再那麼困難"
 tags: ["學習"]

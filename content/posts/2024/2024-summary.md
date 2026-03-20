@@ -1,5 +1,6 @@
 ---
 title: "2024 回顧"
+permalink: /posts/2024-summary
 published: 2024-12-31
 description: "2024 我改變什麼"
 tags: ["心靈"]

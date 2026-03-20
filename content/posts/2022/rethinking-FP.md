@@ -1,5 +1,6 @@
 ---
 title: "重新思考 FP"
+permalink: /posts/rethinking-FP
 published: 2022-06-07
 description: "關於學習FP的一些過程及想法"
 tags: ["Functional-Programming"]

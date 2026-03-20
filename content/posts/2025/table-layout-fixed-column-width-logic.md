@@ -1,5 +1,6 @@
 ---
 title: "table layout fixed 欄寬分配邏輯"
+permalink: /posts/table-layout-fixed-column-width-logic
 published: 2025-03-27
 description: "table layout fixed 的情況下瀏覽器如何分配欄寬" 
 tags: 

@@ -1,5 +1,6 @@
 ---
 title: "你以為 React Query 壞了，但其實沒有"
+permalink: /posts/you-thought-react-query-was-broken-but-its-not
 published: 2024-06-27
 description: "React Query 結構共享機制說明" 
 tags: ["Front-End","React-Query"]

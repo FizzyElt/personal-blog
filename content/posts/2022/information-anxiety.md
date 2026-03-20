@@ -1,5 +1,6 @@
 ---
 title: "資訊焦慮"
+permalink: /posts/information-anxiety
 published: 2022-06-11
 description: "描述資訊焦慮如何形成，以及我如何面對它"
 tags: ["心靈"]

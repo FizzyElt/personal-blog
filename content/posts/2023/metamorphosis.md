@@ -1,5 +1,6 @@
 ---
 title: "蛻變"
+permalink: /posts/metamorphosis
 published: 2023-08-06
 description: "近一年的心態變化以及接觸的事物"
 tags: ["心靈"]
