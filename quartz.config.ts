@@ -78,6 +78,7 @@ const config: QuartzConfig = {
 			Plugin.AliasRedirects(),
 			Plugin.ComponentResources(),
 			Plugin.ContentPage(),
+			Plugin.ContentIndex(),
 			Plugin.FolderPage({ formatFolderTitle: (folder) => `🗂️ ${folder}` }),
 			Plugin.TagPage({ formatTagTitle: (tag) => `🏷️ ${tag}` }),
 			Plugin.ContentIndex({
