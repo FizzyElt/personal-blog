@@ -1,49 +1,6 @@
-## Biome
+## Oxlint, Oxfmt
 
-```json title="biome.json"
-{
-    "vcs": {
-        "enabled": false,
-        "clientKind": "git",
-        "useIgnoreFile": false
-    },
-    "files": {
-        "ignoreUnknown": false,
-        "includes": ["**/*.ts", "*.json"]
-    },
-    "formatter": {
-        "enabled": true,
-        "indentStyle": "space",
-        "lineEnding": "lf",
-        "indentWidth": 4
-    },
-    "linter": {
-        "enabled": true,
-        "rules": {
-            "recommended": true,
-            "suspicious": {
-                "noShadowRestrictedNames": "off"
-            }
-        }
-    },
-    "javascript": {
-        "formatter": {
-            "quoteStyle": "double"
-        }
-    },
-    "assist": {
-        "enabled": true,
-        "actions": {
-            "source": {
-                "organizeImports": {
-                    "level": "on",
-                    "options": {
-                        "groups": [":NODE:", ":PACKAGE:", ":ALIAS:", ":PATH:"]
-                    }
-                }
-            }
-        }
-    }
-}
-
+```bash
+npx @fizzyelt/config oxc
+pnpx @fizzyelt/config oxc
 ```
