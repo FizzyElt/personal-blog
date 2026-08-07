@@ -1035,7 +1035,10 @@ export async function regeneratePluginIndex(
     const overridable = named.filter((n) => isOverridableExport(n, dtsContent))
     const passthrough = named.filter((n) => !isOverridableExport(n, dtsContent))
 
-    const key = npmPkg.replace(/^@/, "").replace(/\//g, "__")
+    // Keep the npm package name as the registry key. The config loader looks up
+    // TypeScript overrides using `parsePluginSource(entry.source).name`, which
+    // preserves scoped names such as `@quartz-community/recent-notes`.
+    const key = npmPkg
     if (overridable.length > 0 || passthrough.length > 0 || types.length > 0) {
       pluginExports.set(key, { overridable, passthrough, types })
       importPath.set(key, npmPkg)

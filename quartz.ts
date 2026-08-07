@@ -1,7 +1,7 @@
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
-import * as Plugin from "./.quartz/plugins"
+import * as ExternalPlugin from "./.quartz/plugins"
 
-Plugin.RecentNotes({
+ExternalPlugin.RecentNotes({
   title: "Recent Notes/Posts",
   limit: 5,
   showTags: false,
